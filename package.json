@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "immutable": "^3.8.1",
+    "ipfs": "^0.13.0",
     "react": "^15.1.0",
     "react-addons-pure-render-mixin": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
