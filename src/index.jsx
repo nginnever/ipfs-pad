@@ -6,11 +6,13 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import {List, Map} from 'immutable'
 import reducer from './reducer'
-import {AppContainer} from './components/App'
-import {Test} from './components/Test'
+import App from './components/App'
+import {HomeContainer} from './components/Home'
+import {PadContainer} from './components/Pad'
+import {NotFoundPage} from './components/NotFound'
 
 const pad = Map({
-  hash: 'Qm'
+  hash: 'Qm1'
 })
 
 const store = createStore(reducer)
@@ -21,9 +23,10 @@ store.dispatch({
 	}
 })
 
-const routes = <Route>
-  <Route path="/" component={AppContainer} />
-  <Route path="/test2" component={Test} />
+const routes = <Route component={App}>
+  <Route path="/" component={HomeContainer} />
+  <Route path="/id/:id" component={PadContainer} />
+  <Route path='*' component={NotFoundPage} />
 </Route>
 
 ReactDOM.render(

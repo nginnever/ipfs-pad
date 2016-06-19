@@ -3,19 +3,15 @@ import ReactDOM from 'react-dom'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {connect} from 'react-redux'
 
-let post
-
-export const Home = React.createClass({
+export const Pad = React.createClass({
   mixins: [PureRenderMixin],
-  getInitialState: function() {
-    return ({
-      activeNavigationUrl: ""
-    })
+  componentDidMount: function() {
+    console.log(this.props.params.id)
   },
   render: function() {
     return (
       <div>
-        <h1>testerss</h1>
+        <h1>{this.props.params.id}</h1>
       </div>
     )
   }
@@ -26,4 +22,4 @@ function mapStateToProps(state) {
   return state.toJSON()
 }
 
-export const HomeContainer = connect(mapStateToProps)(Home)
+export const PadContainer = connect(mapStateToProps)(Pad)
