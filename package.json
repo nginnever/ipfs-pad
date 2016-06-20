@@ -32,6 +32,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "draft-js": "^0.7.0",
     "immutable": "^3.8.1",
     "ipfs": "^0.13.0",
     "react": "^15.1.0",

@@ -13,6 +13,23 @@ h1 {
   font-size: 42px;
 }
 
+ol {
+  margin: 0px;
+  padding: 0px;
+}
+
+ol { 
+  counter-reset: item;
+  list-style-type: none;
+  margin: 0px;
+  padding-right: 11px;
+}
+li { display: block; }
+li:before { 
+    content: counter(item) "  "; 
+    counter-increment: item 
+}
+
 .navigation {
   width: 200px;
   text-transform: uppercase;
@@ -97,8 +114,15 @@ h1 {
 }
 
 .logo {
-  margin-left: 10px;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: -85px;
+  margin-left: 200px;
+}
+
+.logoText {
+  text-align: center;
+  margin-top: -85px;
+  margin-left: -30px;
 }
 
 .turba {
@@ -107,5 +131,26 @@ h1 {
 }
 
 .home {
-  margin: 15px;
+  text-align: center;
+  padding: 70px 0;
+ 
+}
+
+* {
+ box-sizing: border-box;
+}
+
+#content {
+ margin: 0 auto;
+}
+
+.editor {
+ border: 1px solid gray;
+ padding: 6px;
+ background-color: #333333;
+}
+
+.lineNum {
+  color: gray;
+  list-style-position: inside;
 }

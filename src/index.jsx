@@ -19,7 +19,7 @@ const store = createStore(reducer)
 store.dispatch({
 	type: 'SET_STATE',
 	state: {
-		pad: pad
+  	style: {},
 	}
 })
 
