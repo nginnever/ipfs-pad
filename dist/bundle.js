@@ -7546,10 +7546,7 @@
 	store.dispatch({
 	  type: 'SET_STATE',
 	  state: {
-	    style: {},
-	    styleEditor: {},
-	    styleList: {},
-	    styleListItem: {}
+	    style: {}
 	  }
 	});
 
@@ -39545,7 +39542,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-			value: true
+	  value: true
 	});
 	exports.PadContainer = exports.Pad = undefined;
 
@@ -39572,70 +39569,61 @@
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	var Pad = exports.Pad = _react2.default.createClass({
-			displayName: 'Pad',
+	  displayName: 'Pad',
 
-			mixins: [_reactAddonsPureRenderMixin2.default],
-			getInitialState: function getInitialState() {
-					return { editorState: _draftJs.EditorState.createEmpty() };
-			},
-			onChange: function onChange(editorState) {
-					this.setState({ editorState: editorState });
-			},
-			render: function render() {
-					var _this = this;
+	  mixins: [_reactAddonsPureRenderMixin2.default],
+	  getInitialState: function getInitialState() {
+	    return { editorState: _draftJs.EditorState.createEmpty() };
+	  },
+	  onChange: function onChange(editorState) {
+	    this.setState({ editorState: editorState });
+	  },
+	  render: function render() {
+	    var _this = this;
 
-					console.log(this.state);
-
-					return _react2.default.createElement(
-							'div',
-							{ id: 'content' },
-							_react2.default.createElement(
-									'h3',
-									null,
-									'IPFS PAD'
-							),
-							_react2.default.createElement(
-									'div',
-									{ className: 'editor' },
-									_react2.default.createElement(
-											'div',
-											{ style: Object.assign(this.props.style, {
-															display: 'flex'
-													}) },
-											_react2.default.createElement(
-													'ol',
-													_extends({}, this.props.list, {
-															style: Object.assign(this.props.styleList, {
-																	margin: 0,
-																	padding: 0
-															}) }),
-													[].concat(_toConsumableArray(Array(this.state.editorState.getCurrentContent().getBlockMap().size))).map(function (x, i) {
-															return _react2.default.createElement('li', _extends({ key: i, className: 'lineNum'
-															}, _this.props.listItem, {
-																	style: Object.assign(_this.props.styleListItem, {
-																			listStylePosition: 'inside'
-																	}) }));
-													})
-											),
-											_react2.default.createElement(
-													'div',
-													{ style: { flex: 1 } },
-													_react2.default.createElement(_draftJs.Editor, _extends({}, this.props.editor, {
-															style: this.props.styleEditor,
-															editorState: this.state.editorState,
-															onChange: function onChange(editorState) {
-																	_this.onChange(editorState);
-															} }))
-											)
-									)
-							)
-					);
-			}
+	    console.log(this.state);
+	    console.log(this.props);
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'content' },
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        'IPFS PAD'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'editor' },
+	        _react2.default.createElement(
+	          'div',
+	          { style: Object.assign(this.props.style, {
+	              display: 'flex'
+	            }) },
+	          _react2.default.createElement(
+	            'ol',
+	            { className: 'custom' },
+	            [].concat(_toConsumableArray(Array(this.state.editorState.getCurrentContent().getBlockMap().size))).map(function (x, i) {
+	              return _react2.default.createElement('li', { key: i, className: 'lineNum' });
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { style: { flex: 1 } },
+	            _react2.default.createElement(_draftJs.Editor, _extends({}, this.props.editor, {
+	              editorState: this.state.editorState,
+	              onChange: function onChange(editorState) {
+	                _this.onChange(editorState);
+	              } }))
+	          )
+	        )
+	      )
+	    );
+	  }
 	});
 
 	function mapStateToProps(state) {
-			console.log(state.toJSON());
-			return state.toJSON();
+	  console.log(state.toJSON());
+	  return state.toJSON();
 	}
 
 	var PadContainer = exports.PadContainer = (0, _reactRedux.connect)(mapStateToProps)(Pad);

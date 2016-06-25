@@ -3,18 +3,33 @@ import ReactDOM from 'react-dom'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {connect} from 'react-redux'
 import {Editor, EditorState} from 'draft-js'
+import CodeUtils from 'draft-js-code'
+import PrismDecorator from 'draft-js-prism'
 
 export const Pad = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState: function() {
-  	return { editorState: EditorState.createEmpty() }
+    var decorator = new PrismDecorator()
+  	return { editorState: EditorState.createEmpty(decorator) }
   },
   onChange: function(editorState) {
   	this.setState({editorState})
   },
+  handleTab: function(e) {
+    var editorState = this.state.editorState
+
+    // TODO draft-js-code 
+    // if (!CodeUtils.hasSelectionInBlock(editorState)) {
+    //   return
+    // }
+
+    this.onChange(
+      CodeUtils.handleTab(e, editorState)
+    )
+  },
   render: function() {
-  	console.log(this.state)
-    console.log(this.props)
+  	//console.log(this.state)
+    //console.log(this.props)
     return (
       <div id="content">
         <h3>IPFS PAD</h3>
@@ -30,7 +45,8 @@ export const Pad = React.createClass({
 		        <div style={{flex: 1}}>
 		          <Editor {...this.props.editor}
 		            editorState={this.state.editorState}
-		            onChange={(editorState) => { this.onChange(editorState)}} />
+		            onChange={(editorState) => { this.onChange(editorState)}} 
+                onTab={this.handleTab} />
 		        </div>
           </div>
         </div>

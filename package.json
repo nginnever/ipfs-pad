@@ -33,6 +33,8 @@
   },
   "dependencies": {
     "draft-js": "^0.7.0",
+    "draft-js-code": "^0.2.0",
+    "draft-js-prism": "^1.0.3",
     "immutable": "^3.8.1",
     "ipfs": "^0.13.0",
     "react": "^15.1.0",
