@@ -29,9 +29,8 @@ export const Home = React.createClass({
           <p>This is a collaborative text editor service hosted by IPFS. <br/>
           IPFS PAD is a software libre web application that allows for <br/>
           real-time distributed group collaboration of text documents. <br/>
-          IPFS does not store IP addresses, but connection info is public <br/>
-          if not connecting to IPFS through TOR. There are no central <br/>
-          servers to store the documents.</p>
+          For more information <a href="https://github.com/nginnever/ipfs-pad-client">View Source</a>
+          </p>
         </div>
         <br/>
         <div className="logo">
