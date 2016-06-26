@@ -9,10 +9,14 @@ import PrismDecorator from 'draft-js-prism'
 export const Pad = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState: function() {
-    var decorator = new PrismDecorator()
+    var decorator = new PrismDecorator({
+      defaultSyntax: 'javascript'
+    })
+    //console.log(decorator)
   	return { editorState: EditorState.createEmpty(decorator) }
   },
   onChange: function(editorState) {
+    console.log(this.state)
   	this.setState({editorState})
   },
   handleTab: function(e) {
@@ -28,7 +32,6 @@ export const Pad = React.createClass({
     )
   },
   render: function() {
-  	//console.log(this.state)
     //console.log(this.props)
     return (
       <div id="content">
