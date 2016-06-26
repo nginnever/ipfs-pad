@@ -1,5 +1,5 @@
-# turba
+# ipfs-pad
 
-A distributed entertainment, social networking, and news website.
+A distributed collaborative text editor on ipfs.
 
-turba-client requires turba-server to receive updates from peers sending new state objects. 
+ipfs-pad currently uses a redis pub/sub server until ipfs pub/sub is complete.
